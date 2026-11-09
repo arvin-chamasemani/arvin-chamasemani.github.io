@@ -53,88 +53,146 @@
     .hero-meta i{width:4px;height:4px;background:var(--cyan);border-radius:50%}
     .visual{position:relative;min-height:420px;display:grid;place-items:center}
 
-    /* ORBITAL ILLUSTRATION */
-    .orbital{
-      width:min(100%,420px);
-      aspect-ratio:1;
-      border:1px solid rgba(103,232,249,.2);
-      border-radius:50%;
-      position:relative;
-      background:radial-gradient(circle at center,rgba(74,164,190,.12),rgba(10,19,30,.1) 50%,transparent 70%);
-      box-shadow:inset 0 0 80px rgba(65,190,220,.04),0 0 90px rgba(40,120,160,.08);
+    /* ENGINEERING IN MOTION — luminous orbital HUD inspired by the supplied reference */
+    .visual{
+      position:relative;min-height:520px;display:grid;place-items:center;
+      perspective:1200px;isolation:isolate;overflow:visible;
     }
-
-    .orbital:before,
+    .orbital{
+      --hud-cyan:#45dfff;--hud-blue:#168dff;--hud-violet:#9b7bff;
+      position:relative;width:min(100%,560px);aspect-ratio:1.12/1;
+      border-radius:50%;isolation:isolate;transform-style:preserve-3d;
+      background:
+        radial-gradient(ellipse at 50% 49%,rgba(18,116,174,.16),transparent 29%),
+        radial-gradient(ellipse at 50% 50%,rgba(0,16,31,.42),transparent 66%);
+      animation:hud-breathe 8s ease-in-out infinite;
+    }
+    /* fine technical grid and central crosshair */
+    .orbital:before{
+      content:"";position:absolute;inset:-15% -18%;z-index:-2;pointer-events:none;
+      background:
+        linear-gradient(90deg,transparent calc(50% - .5px),rgba(41,158,215,.17) 50%,transparent calc(50% + .5px)),
+        linear-gradient(0deg,transparent calc(50% - .5px),rgba(41,158,215,.17) 50%,transparent calc(50% + .5px)),
+        repeating-linear-gradient(90deg,transparent 0 17.8%,rgba(38,137,187,.075) 17.9% 18%,transparent 18.1% 100%),
+        repeating-linear-gradient(0deg,transparent 0 17.8%,rgba(38,137,187,.075) 17.9% 18%,transparent 18.1% 100%);
+      mask-image:radial-gradient(ellipse,black 35%,transparent 78%);
+    }
     .orbital:after{
-      content:"";
-      position:absolute;
-      inset:11%;
-      border:1px dashed rgba(167,139,250,.3);
-      border-radius:50%;
-      transform-origin:center;
-      animation:orbit-clockwise 24s linear infinite;
+      content:"";position:absolute;left:50%;top:50%;width:42%;aspect-ratio:1;
+      transform:translate(-50%,-50%);border-radius:50%;z-index:-1;
+      background:radial-gradient(circle,rgba(14,68,99,.25),rgba(2,13,25,.08) 65%,transparent 72%);
+      box-shadow:0 0 70px rgba(0,159,255,.12);
+    }
+    .hud-grid-dot{
+      position:absolute;width:3px;height:3px;border-radius:50%;background:#56dfff;
+      box-shadow:0 0 8px #1bbcff;opacity:.8;
+    }
+    .hud-grid-dot.d1{left:5%;top:36%}.hud-grid-dot.d2{right:6%;top:36%}
+    .hud-grid-dot.d3{left:50%;top:5%}.hud-grid-dot.d4{left:50%;bottom:5%}
+    .orbit-track{
+      position:absolute;left:50%;top:50%;width:96%;height:34%;
+      border:1px solid rgba(41,174,255,.72);border-radius:50%;
+      transform:translate(-50%,-50%) rotate(-1deg);
+      transform-style:preserve-3d;box-shadow:0 0 12px rgba(0,158,255,.10),inset 0 0 10px rgba(0,158,255,.06);
+    }
+    .orbit-track.track-two{
+      width:78%;height:26%;border-color:rgba(112,185,255,.88);
+      transform:translate(-50%,-50%) rotate(1deg);
+    }
+    .orbit-track.track-three{
+      width:106%;height:39%;border-color:rgba(35,153,255,.5);
+      transform:translate(-50%,-50%) rotate(-1deg);
+    }
+    .orbit-track:before{
+      content:"";position:absolute;inset:-1px;border-radius:50%;
+      border:2px solid transparent;border-top-color:#39dfff;border-left-color:rgba(48,165,255,.8);
+      filter:drop-shadow(0 0 5px rgba(40,197,255,.72));
+      opacity:.72;
+    }
+    .track-two:before{border-top-color:#c0eaff;border-left-color:#7c9fff}
+    .track-three:before{border-top-color:rgba(30,153,255,.85);border-left-color:transparent}
+    .orbit-light{
+      position:absolute;left:0;top:0;width:8px;height:8px;border-radius:50%;
+      background:radial-gradient(circle,#fff 0 12%,#c9f8ff 25%,#35d8ff 55%,rgba(24,151,255,.1) 75%);
+      box-shadow:0 0 7px 3px rgba(57,216,255,.9),0 0 20px 7px rgba(28,151,255,.55);
+      offset-path:ellipse(50% 50% at 50% 50%);offset-rotate:0deg;
+      animation:light-travel 8s linear infinite;
       pointer-events:none;
     }
-
-    .orbital:after{
-      inset:20%;
-      border-color:rgba(103,232,249,.35);
-      animation:orbit-counterclockwise 18s linear infinite;
+    .track-two .orbit-light{width:6px;height:6px;animation-duration:10s;animation-delay:-3s;background:radial-gradient(circle,#fff 0 15%,#e2f3ff 30%,#80baff 65%,transparent 78%);box-shadow:0 0 7px 3px rgba(125,187,255,.9),0 0 18px 6px rgba(99,139,255,.5)}
+    .track-three .orbit-light{width:5px;height:5px;animation-duration:13s;animation-delay:-7s;opacity:.8}
+    @keyframes light-travel{to{offset-distance:100%}}
+    .orbit-track:after{
+      content:"";position:absolute;width:5px;height:5px;left:50%;top:-3px;border-radius:50%;
+      background:#d8f8ff;box-shadow:0 0 7px 2px #24cfff,0 0 18px #078fff;
     }
-
-    @keyframes orbit-clockwise{
-      from{transform:rotate(55deg) scaleY(.56)}
-      to{transform:rotate(415deg) scaleY(.56)}
+    .track-two:after{background:#d9eaff;box-shadow:0 0 8px 2px #76baff}
+    .track-three:after{width:4px;height:4px;background:#5bdcff}
+    /* concentric reactor rings */
+    .reactor{
+      position:absolute;left:50%;top:50%;width:38%;aspect-ratio:1;
+      transform:translate(-50%,-50%);border-radius:50%;z-index:2;
+      background:
+        radial-gradient(circle at 50% 48%,rgba(6,29,48,.96) 0 47%,rgba(9,49,75,.88) 57%,rgba(15,111,157,.30) 64%,transparent 70%);
+      border:1px solid rgba(73,210,255,.65);
+      box-shadow:0 0 0 7px rgba(15,158,220,.07),0 0 0 13px rgba(41,179,255,.06),
+        0 0 22px rgba(36,193,255,.42),0 0 58px rgba(0,142,255,.28),inset 0 0 32px rgba(41,188,255,.22);
+      animation:reactor-pulse 5s ease-in-out infinite;
     }
-
-    @keyframes orbit-counterclockwise{
-      from{transform:rotate(-55deg) scaleY(.58)}
-      to{transform:rotate(-415deg) scaleY(.58)}
+    .reactor:before,.reactor:after{
+      content:"";position:absolute;inset:7%;border-radius:50%;
+      border:1px solid rgba(93,219,255,.58);
+      box-shadow:inset 0 0 16px rgba(39,177,255,.13),0 0 12px rgba(31,179,255,.13);
     }
-
-    .core{
-      position:absolute;
-      inset:33%;
-      display:grid;
-      place-items:center;
-      border-radius:50%;
-      background:linear-gradient(145deg,#172d3b,#111927);
-      border:1px solid rgba(103,232,249,.42);
-      box-shadow:0 0 55px rgba(103,232,249,.12);
-      font:13px var(--mono);
-      color:var(--cyan);
-      text-align:center;
-      z-index:1;
+    .reactor:after{
+      inset:-8%;border:1px dashed rgba(52,177,255,.45);
+      opacity:.8;
     }
-
+    .reactor-arc{
+      position:absolute;inset:-4%;border-radius:50%;
+      border:5px solid transparent;border-top-color:#8cecff;border-bottom-color:rgba(28,156,255,.9);
+      filter:drop-shadow(0 0 7px #19bfff);opacity:.9;
+    }
+    .reactor-label{
+      position:absolute;inset:0;display:grid;place-content:center;text-align:center;
+      color:#e9faff;font:500 clamp(12px,1.7vw,20px) var(--sans);
+      letter-spacing:.24em;text-shadow:0 0 18px rgba(69,210,255,.38);
+    }
+    .reactor-label strong{font-size:clamp(14px,2vw,23px);font-weight:500;letter-spacing:.22em}
+    .reactor-label span{display:block;margin-top:10px;color:#52e6ff;font:600 10px var(--mono);letter-spacing:.42em}
+    .reactor-label span:before,.reactor-label span:after{
+      content:"";display:inline-block;width:22px;height:1px;vertical-align:middle;margin:0 10px;
+      background:linear-gradient(90deg,transparent,#49dfff);
+    }
+    .reactor-label span:after{transform:rotate(180deg)}
     .node{
-      position:absolute;
-      width:11px;
-      height:11px;
-      border-radius:50%;
-      background:var(--cyan);
-      box-shadow:0 0 20px var(--cyan);
-      z-index:2;
-      animation:node-pulse 2.5s ease-in-out infinite;
+      position:absolute;z-index:5;width:13px;height:13px;border-radius:50%;
+      background:radial-gradient(circle at 35% 30%,#fff 0 8%,#c7f8ff 18%,#36cfff 48%,#0878c8 72%,#063a70 100%);
+      border:1px solid rgba(184,245,255,.9);
+      box-shadow:0 0 0 3px rgba(36,184,255,.12),0 0 12px 4px rgba(35,197,255,.75),0 0 30px rgba(0,145,255,.55);
+      transform:translate(-50%,-50%);
     }
-
-    .n1{top:17%;left:27%}
-    .n2{right:13%;top:48%;background:var(--violet);box-shadow:0 0 20px var(--violet);animation-delay:.8s}
-    .n3{bottom:14%;left:47%;animation-delay:1.6s}
-
-    @keyframes node-pulse{
-      0%,100%{transform:scale(1);opacity:.85}
-      50%{transform:scale(1.5);opacity:1}
+    .n1{left:28%;top:24%}
+    .n2{left:91%;top:51%;width:16px;height:16px;background:radial-gradient(circle at 35% 30%,#fff,#d9ccff 22%,#9875ff 54%,#4c2da9 100%);box-shadow:0 0 0 4px rgba(160,125,255,.12),0 0 17px 5px rgba(151,112,255,.8)}
+    .n3{left:50%;top:91%}
+    @keyframes node-orbit-a{0%,100%{transform:translate(-50%,-50%) translate(0,0)}50%{transform:translate(-50%,-50%) translate(9px,-7px)}}
+    @keyframes node-orbit-c{0%,100%{transform:translate(-50%,-50%) translate(0,0)}50%{transform:translate(-50%,-50%) translate(0,-10px)}}
+    @keyframes reactor-pulse{0%,100%{filter:brightness(.92)}50%{filter:brightness(1.2)}}
+    @keyframes hud-breathe{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+    .instrument-readout{
+      position:absolute;left:50%;bottom:-1%;transform:translateX(-50%);display:flex;gap:20px;
+      color:#7895aa;font:8px var(--mono);letter-spacing:.18em;white-space:nowrap;
     }
-
-    .visual:hover .orbital:before{animation-duration:12s}
-    .visual:hover .orbital:after{animation-duration:9s}
-    .visual:hover .node{animation-duration:1.5s}
-
-    .float-label{position:absolute;padding:9px 12px;background:rgba(15,24,36,.88);border:1px solid var(--line);border-radius:5px;color:#b7c6d6;font:10px var(--mono);backdrop-filter:blur(10px)}
-    .fl1{top:8%;right:-2%}
-    .fl2{bottom:9%;left:-5%}
-    .fl3{top:48%;left:-9%}
+    .instrument-readout span:before{content:"";display:inline-block;width:4px;height:4px;margin:0 7px 1px 0;border-radius:50%;background:#45dfff;box-shadow:0 0 6px #45dfff}
+    .instrument-readout span:nth-child(2):before{background:#9b7bff;box-shadow:0 0 6px #9b7bff}
+    .instrument-readout span:nth-child(3):before{background:#8edbb7;box-shadow:0 0 6px #8edbb7}
+    .float-label{position:absolute;padding:8px 11px;background:rgba(3,15,27,.78);border:1px solid rgba(54,159,207,.22);border-radius:3px;color:#a8c9dc;font:9px var(--mono);letter-spacing:.08em;backdrop-filter:blur(10px)}
+    .fl1{top:7%;right:0}.fl2{bottom:8%;left:-2%}.fl3{top:48%;left:-4%}
+    @media(max-width:900px){.visual{min-height:430px}.orbital{width:min(100%,490px)}}
+    @media(max-width:560px){.visual{min-height:350px}.orbital{width:100%}.float-label{font-size:7px;padding:6px 7px}.fl3{left:0}.fl2{bottom:3%}.instrument-readout{gap:10px;font-size:7px}}
+    @media(prefers-reduced-motion:reduce){
+      .orbital,.orbit-light,.reactor,.node{animation:none!important}
+    }
     .scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:#65768a;font:10px var(--mono);letter-spacing:.14em;display:flex;align-items:center;gap:12px}
     .scroll-cue:after{content:"";height:28px;width:1px;background:linear-gradient(var(--cyan),transparent);position:absolute;top:22px;left:50%}
 
@@ -200,6 +258,8 @@
     .reveal.visible{opacity:1;transform:none}
 
     @media(max-width:850px){
+      .visual{min-height:390px}
+      .instrument-readout{bottom:0;gap:12px}
       .hero-grid{grid-template-columns:1fr;gap:20px}
       .hero{padding-top:140px;min-height:auto}
       .visual{min-height:360px}
@@ -213,6 +273,10 @@
     }
 
     @media(max-width:600px){
+      .visual{min-height:330px}
+      .orbital{width:280px}
+      .float-label{font-size:8px;padding:7px 9px}
+      .instrument-readout{font-size:7px;gap:9px}
       .container{width:min(var(--max),calc(100% - 34px))}
       nav{height:66px}
       .nav-links{display:none;position:absolute;top:66px;left:0;right:0;padding:20px 24px 25px;background:#0c131d;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:18px}
@@ -242,10 +306,57 @@
       *,*:before,*:after{animation:none!important;transition:none!important}
       .reveal{opacity:1;transform:none}
     }
+
+    /* Enhanced motion + editorial project imagery */
+    :root{--ease-out:cubic-bezier(.16,1,.3,1)}
+    body{background-attachment:fixed}
+    .nav-wrap{transition:background .3s ease,box-shadow .3s ease}
+    .nav-wrap.scrolled{background:rgba(7,11,18,.92);box-shadow:0 12px 36px rgba(0,0,0,.22)}
+    .hero:before{content:"";position:absolute;width:520px;height:520px;right:-12%;top:12%;border-radius:50%;background:radial-gradient(circle,rgba(62,175,205,.10),transparent 68%);filter:blur(10px);pointer-events:none;animation:ambient-drift 12s ease-in-out infinite alternate}
+    @keyframes ambient-drift{from{transform:translate3d(0,-12px,0) scale(.94)}to{transform:translate3d(-22px,18px,0) scale(1.08)}}
+    .hero h1{animation:hero-rise .9s var(--ease-out) both}
+    .hero-copy{animation:hero-rise .9s .12s var(--ease-out) both}
+    .hero-actions{animation:hero-rise .9s .2s var(--ease-out) both}
+    @keyframes hero-rise{from{opacity:0;transform:translateY(24px);filter:blur(5px)}to{opacity:1;transform:none;filter:blur(0)}}50%{transform:translateY(-11px) rotate(2deg)}}
+    .ticker-track{width:max-content;min-width:100%;justify-content:flex-start;animation:ticker-scroll 32s linear infinite}
+    .ticker:hover .ticker-track{animation-play-state:paused}
+    @keyframes ticker-scroll{to{transform:translateX(-28%)}}
+    .skill-card,.project-card,.research-card{will-change:transform;transition:transform .45s var(--ease-out),border-color .35s ease,box-shadow .35s ease}
+    .skill-card:hover,.project-card:hover,.research-card:hover{transform:translateY(-8px);box-shadow:0 22px 55px rgba(0,0,0,.24)}
+    .project-art{height:230px;background-size:cover;background-position:center;isolation:isolate}
+    .project-art:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(7,13,21,.12),rgba(7,13,21,.84))}
+    .project-art .art-label{z-index:1;background:rgba(5,11,18,.55);padding:7px 9px;border:1px solid rgba(255,255,255,.12);border-radius:3px;backdrop-filter:blur(8px)}
+    .project-art .art-graphic{z-index:1;text-shadow:0 2px 20px rgba(0,0,0,.65)}
+    .project-card:hover .project-art{background-position:center 44%}
+    .project-art{transition:background-position .8s var(--ease-out)}
+    .project-body{position:relative}
+    .project-foot a{color:var(--cyan);transition:color .2s ease}
+    .project-foot a:hover{color:#fff}
+    .repo-link{display:inline-flex;align-items:center;gap:7px;color:var(--cyan);font:10px var(--mono);letter-spacing:.04em;text-transform:uppercase}
+    .repo-link:after{content:"↗";transition:transform .2s ease}
+    .repo-link:hover:after{transform:translate(3px,-3px)}
+    .project-card.featured{border-color:rgba(103,232,249,.25)}
+    .project-card.featured .project-art{height:250px}
+    .section-head h2{ text-wrap:balance }
+    .btn{position:relative;overflow:hidden}
+    .btn:before{content:"";position:absolute;inset:0;transform:translateX(-120%);background:linear-gradient(100deg,transparent,rgba(255,255,255,.18),transparent);transition:transform .65s ease}
+    .btn:hover:before{transform:translateX(120%)}
+    .scroll-progress{position:fixed;z-index:30;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--cyan),var(--violet));box-shadow:0 0 14px rgba(103,232,249,.55)}
+    .cursor-glow{position:fixed;z-index:-1;width:320px;height:320px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(103,232,249,.055),transparent 68%);transform:translate(-50%,-50%);opacity:0;transition:opacity .3s ease}
+    @media(hover:hover) and (pointer:fine){body:hover .cursor-glow{opacity:1}}
+    @media(max-width:600px){
+      .visual{min-height:330px}
+      .orbital{width:280px}
+      .float-label{font-size:8px;padding:7px 9px}
+      .instrument-readout{font-size:7px;gap:9px}.project-art,.project-card.featured .project-art{height:190px}.ticker-track{animation-duration:24s}}
+    @media(prefers-reduced-motion:reduce){.ticker-track,.orbital,.orbit-track:after,.node,.hero:before,.hero h1,.hero-copy,.hero-actions{animation:none!important}.cursor-glow{display:none}}
+
   </style>
 </head>
 
 <body>
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
   <div class="nav-wrap">
     <nav class="container">
       <a class="brand" href="#home">Arvin Chamasemani<span>.</span></a>
@@ -280,16 +391,23 @@
           </div>
         </div>
 
-        <div class="visual reveal" aria-label="Abstract technical orbital illustration">
+        <div class="visual reveal" aria-label="Animated engineering-in-motion orbital HUD">
           <div class="orbital">
-            <div class="core">ENGINEERING<br>IN MOTION</div>
-            <span class="node n1"></span>
-            <span class="node n2"></span>
-            <span class="node n3"></span>
+            <span class="hud-grid-dot d1"></span><span class="hud-grid-dot d2"></span>
+            <span class="hud-grid-dot d3"></span><span class="hud-grid-dot d4"></span>
+            <div class="orbit-track track-three"><span class="orbit-light"></span></div>
+            <div class="orbit-track track-one"><span class="orbit-light"></span></div>
+            <div class="orbit-track track-two"><span class="orbit-light"></span></div>
+            <div class="reactor">
+              <div class="reactor-arc"></div>
+              <div class="reactor-label"><strong>ENGINEERING</strong><span>IN MOTION</span></div>
+            </div>
+            <span class="node n1"></span><span class="node n2"></span><span class="node n3"></span>
           </div>
-          <div class="float-label fl1">ẋ = f(x,u)</div>
-          <div class="float-label fl2">SIMULATE / ANALYZE / CONTROL</div>
-          <div class="float-label fl3">01 — SYSTEMS</div>
+          <div class="float-label fl1">SYSTEM STATE / ACTIVE</div>
+          <div class="float-label fl2">DYNAMICS · CONTROL · SIMULATION</div>
+          <div class="float-label fl3">ORBITAL HUD // 01</div>
+          <div class="instrument-readout"><span>MODEL</span><span>ANALYZE</span><span>OPTIMIZE</span></div>
         </div>
       </div>
       <div class="scroll-cue">SCROLL TO EXPLORE</div>
@@ -397,9 +515,47 @@
       </div>
 
       <div class="projects">
+        <article class="project-card featured reveal">
+          <div class="project-art" style="background-image:url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1400&q=85')">
+            <span class="art-label">01 / ADAPTIVE AUTOMOTIVE LIGHTING</span>
+            <div class="art-graphic"><div class="ring"></div></div>
+          </div>
+          <div class="project-body">
+            <div class="project-top">
+              <h3>Adaptive Driving Beam Simulation</h3>
+              <span class="status">GITHUB PROJECT</span>
+            </div>
+            <p>A computer-vision-driven ADB prototype using YOLO-based vehicle detection and an angular LED model. Simulates selective headlamp dimming, temporal smoothing, and a bird’s-eye projection of road illumination.</p>
+            <div class="tag-row"><span class="tag">Python</span><span class="tag">YOLO</span><span class="tag">OpenCV</span><span class="tag">LED Matrix</span></div>
+            <div class="project-foot">
+              <span>VISION · LIGHTING · SIMULATION</span>
+              <a class="repo-link" href="https://github.com/arvin-chamasemani/Adaptive-Driving-Beam-Simulation" target="_blank" rel="noopener noreferrer">View repository</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card featured reveal">
+          <div class="project-art" style="background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=85')">
+            <span class="art-label">02 / NAVIGATION & COMPUTATIONAL SYSTEMS</span>
+            <div class="art-graphic" style="color:var(--violet);font-size:27px">x → f(x,u) → ẋ</div>
+          </div>
+          <div class="project-body">
+            <div class="project-top">
+              <h3>Navigation</h3>
+              <span class="status">GITHUB PROJECT</span>
+            </div>
+            <p>A navigation-focused engineering project. Explore the repository’s Python and MATLAB source, example material, and data files for the implementation details.</p>
+            <div class="tag-row"><span class="tag">Python</span><span class="tag">MATLAB</span><span class="tag">Navigation</span></div>
+            <div class="project-foot">
+              <span>ALGORITHMS · COMPUTATION</span>
+              <a class="repo-link" href="https://github.com/arvin-chamasemani/Navigation" target="_blank" rel="noopener noreferrer">View repository</a>
+            </div>
+          </div>
+        </article>
+
         <article class="project-card reveal">
-          <div class="project-art">
-            <span class="art-label">01 / VEHICLE CONTROL</span>
+          <div class="project-art" style="background-image:url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=85')">
+            <span class="art-label">03 / VEHICLE CONTROL</span>
             <div class="art-graphic"><div class="ring"></div></div>
           </div>
           <div class="project-body">
@@ -408,34 +564,28 @@
               <span class="status">RESEARCH</span>
             </div>
             <p>Exploring nonlinear vehicle dynamics and control strategies for rear-wheel-drive vehicles, including steady-state drift behavior and path tracking.</p>
-            <div class="project-foot">
-              <span>MATLAB · NONLINEAR DYNAMICS</span>
-              <span>↗</span>
-            </div>
+            <div class="project-foot"><span>MATLAB · NONLINEAR DYNAMICS</span><span>RESEARCH</span></div>
           </div>
         </article>
 
         <article class="project-card reveal">
-          <div class="project-art" style="background:radial-gradient(circle at 70% 50%,rgba(167,139,250,.18),transparent 36%),linear-gradient(135deg,#17172a,#0b111b)">
-            <span class="art-label">02 / DATA-DRIVEN MODELING</span>
+          <div class="project-art" style="background-image:url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1200&q=85')">
+            <span class="art-label">04 / DATA-DRIVEN MODELING</span>
             <div class="art-graphic" style="color:var(--violet)">θ → f(x,u) → ẋ</div>
           </div>
           <div class="project-body">
             <div class="project-top">
               <h3>Physics-Informed Modeling</h3>
-              <span class="status">R&D</span>
+              <span class="status">R&amp;D</span>
             </div>
             <p>Investigating machine-learning-assisted transformations of dynamic models, with an emphasis on control-oriented representations and interpretable behavior.</p>
-            <div class="project-foot">
-              <span>PIML · SINDy · SYSTEM ID</span>
-              <span>↗</span>
-            </div>
+            <div class="project-foot"><span>PIML · SINDy · SYSTEM ID</span><span>EXPLORATION</span></div>
           </div>
         </article>
 
         <article class="project-card reveal">
-          <div class="project-art" style="background:radial-gradient(circle at 60% 50%,rgba(96,165,250,.18),transparent 36%),linear-gradient(135deg,#101d30,#0b111b)">
-            <span class="art-label">03 / REAL-TIME SIMULATION</span>
+          <div class="project-art" style="background-image:url('https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=85')">
+            <span class="art-label">05 / REAL-TIME SIMULATION</span>
             <div class="art-graphic" style="font-size:34px;color:var(--blue)">▰ ▱ ▰</div>
           </div>
           <div class="project-body">
@@ -444,28 +594,22 @@
               <span class="status">DEVELOPMENT</span>
             </div>
             <p>Exploring physics-based vehicle simulation and interactive environments, connecting vehicle behavior, virtual worlds and real-time systems.</p>
-            <div class="project-foot">
-              <span>UNREAL ENGINE · CHAOS</span>
-              <span>↗</span>
-            </div>
+            <div class="project-foot"><span>UNREAL ENGINE · CHAOS</span><span>DEVELOPMENT</span></div>
           </div>
         </article>
 
         <article class="project-card reveal">
-          <div class="project-art" style="background:radial-gradient(circle at 70% 50%,rgba(155,231,196,.13),transparent 36%),linear-gradient(135deg,#10231f,#0b111b)">
-            <span class="art-label">04 / CONNECTED PROTOTYPES</span>
+          <div class="project-art" style="background-image:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=85')">
+            <span class="art-label">06 / CONNECTED PROTOTYPES</span>
             <div class="art-graphic" style="color:var(--green)">[ SENSOR ] — [ DATA ]</div>
           </div>
           <div class="project-body">
             <div class="project-top">
-              <h3>Embedded & IoT Prototypes</h3>
+              <h3>Embedded &amp; IoT Prototypes</h3>
               <span class="status">PROTOTYPING</span>
             </div>
             <p>Building connected hardware concepts with microcontrollers, environmental sensors, telemetry and lightweight monitoring interfaces.</p>
-            <div class="project-foot">
-              <span>ESP32 · MQTT · IOT</span>
-              <span>↗</span>
-            </div>
+            <div class="project-foot"><span>ESP32 · MQTT · IOT</span><span>PROTOTYPING</span></div>
           </div>
         </article>
       </div>
@@ -583,6 +727,35 @@
     }));
 
     document.getElementById('year').textContent=new Date().getFullYear();
+
+    const navWrap=document.querySelector('.nav-wrap');
+    const progress=document.getElementById('scrollProgress');
+    const glow=document.getElementById('cursorGlow');
+    let scrollTick=false;
+    window.addEventListener('scroll',()=>{
+      if(scrollTick)return;
+      scrollTick=true;
+      requestAnimationFrame(()=>{
+        const max=document.documentElement.scrollHeight-window.innerHeight;
+        progress.style.width=(max>0?(window.scrollY/max)*100:0)+'%';
+        navWrap.classList.toggle('scrolled',window.scrollY>24);
+        scrollTick=false;
+      });
+    },{passive:true});
+    window.addEventListener('pointermove',e=>{
+      if(glow)glow.style.left=e.clientX+'px',glow.style.top=e.clientY+'px';
+    },{passive:true});
+    document.querySelectorAll('.project-card,.skill-card').forEach(card=>{
+      card.addEventListener('pointermove',e=>{
+        if(!matchMedia('(hover:hover) and (pointer:fine)').matches)return;
+        const r=card.getBoundingClientRect();
+        const x=(e.clientX-r.left)/r.width-.5;
+        const y=(e.clientY-r.top)/r.height-.5;
+        card.style.transform=`translateY(-7px) perspective(900px) rotateX(${-y*2.2}deg) rotateY(${x*2.2}deg)`;
+      });
+      card.addEventListener('pointerleave',()=>card.style.transform='');
+    });
+
 
     const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
       if(entry.isIntersecting){
