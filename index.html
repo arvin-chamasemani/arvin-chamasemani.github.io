@@ -9,28 +9,258 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root{--bg:#090d14;--panel:#101722;--panel2:#121d2a;--text:#edf4fb;--muted:#93a2b5;--line:rgba(166,190,215,.13);--cyan:#67e8f9;--blue:#60a5fa;--violet:#a78bfa;--green:#9be7c4;--max:1160px;--mono:'DM Mono',monospace;--sans:'Manrope',sans-serif}
-    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(ellipse at 80% 8%,rgba(44,105,157,.17),transparent 34%),radial-gradient(ellipse at 8% 48%,rgba(84,65,139,.11),transparent 30%),linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:auto,auto,48px 48px,48px 48px;mask-image:linear-gradient(to bottom,black,transparent 90%)}a{color:inherit;text-decoration:none}button{font:inherit}.container{width:min(var(--max),calc(100% - 48px));margin:auto}.mono{font-family:var(--mono);letter-spacing:.04em}.eyebrow{display:flex;align-items:center;gap:11px;color:var(--cyan);font:12px var(--mono);letter-spacing:.13em;text-transform:uppercase}.eyebrow:before{content:"";width:24px;height:1px;background:var(--cyan)}.section{padding:108px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:38px}.section-head h2{font-size:clamp(30px,4vw,46px);line-height:1.12;letter-spacing:-.05em;margin:13px 0 0}.section-head p{max-width:430px;color:var(--muted);font-size:14px;margin:0}.nav-wrap{position:fixed;z-index:20;top:0;left:0;right:0;background:rgba(9,13,20,.76);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}nav{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:800;letter-spacing:-.05em;font-size:17px}.brand span{color:var(--cyan)}.nav-links{display:flex;align-items:center;gap:29px;color:#aebdcd;font-size:12px}.nav-links a{transition:.2s}.nav-links a:hover{color:var(--cyan)}.nav-cta{border:1px solid rgba(103,232,249,.42);padding:9px 15px;border-radius:5px;color:var(--cyan)!important}.menu-btn{display:none;background:none;border:0;color:var(--text);font-size:23px}.hero{min-height:760px;padding:170px 0 95px;display:flex;align-items:center;position:relative}.hero-grid{display:grid;grid-template-columns:1.18fr .82fr;gap:64px;align-items:center}.availability{display:inline-flex;align-items:center;gap:9px;padding:7px 11px;border:1px solid var(--line);border-radius:99px;color:#b8c6d5;font:11px var(--mono);margin-bottom:28px}.pulse{width:7px;height:7px;background:#72e2ad;border-radius:50%;box-shadow:0 0 0 5px rgba(114,226,173,.1)}h1{font-size:clamp(48px,7.1vw,88px);line-height:.99;letter-spacing:-.075em;margin:0 0 24px;font-weight:800}.gradient{background:linear-gradient(100deg,#e9f7ff 0%,#8deafa 48%,#9c9cf9 100%);-webkit-background-clip:text;background-clip:text;color:transparent}.hero-copy{max-width:620px;color:#a7b5c5;font-size:16px;line-height:1.9}.hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:34px}.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 18px;border-radius:5px;font-size:12px;font-weight:700;transition:.25s;border:1px solid var(--line)}.btn-primary{background:var(--cyan);color:#07121a;border-color:var(--cyan)}.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(103,232,249,.15)}.btn-ghost{color:#dbe8f5}.btn-ghost:hover{border-color:var(--cyan);color:var(--cyan)}.hero-meta{display:flex;gap:24px;flex-wrap:wrap;margin-top:47px;color:#7f90a3;font:10px var(--mono);text-transform:uppercase;letter-spacing:.08em}.hero-meta span{display:flex;align-items:center;gap:8px}.hero-meta i{width:4px;height:4px;background:var(--cyan);border-radius:50%}.visual{position:relative;min-height:420px;display:grid;place-items:center}.orbital{width:min(100%,420px);aspect-ratio:1;border:1px solid rgba(103,232,249,.2);border-radius:50%;position:relative;background:radial-gradient(circle at center,rgba(74,164,190,.12),rgba(10,19,30,.1) 50%,transparent 70%);box-shadow:inset 0 0 80px rgba(65,190,220,.04),0 0 90px rgba(40,120,160,.08)}.orbital:before,.orbital:after{content:"";position:absolute;inset:11%;border:1px dashed rgba(167,139,250,.3);border-radius:50%;transform:rotate(55deg) scaleY(.56)}.orbital:after{inset:20%;transform:rotate(-55deg) scaleY(.58);border-color:rgba(103,232,249,.35)}.core{position:absolute;inset:33%;display:grid;place-items:center;border-radius:50%;background:linear-gradient(145deg,#172d3b,#111927);border:1px solid rgba(103,232,249,.42);box-shadow:0 0 55px rgba(103,232,249,.12);font:13px var(--mono);color:var(--cyan);text-align:center}.node{position:absolute;width:11px;height:11px;border-radius:50%;background:var(--cyan);box-shadow:0 0 20px var(--cyan)}.n1{top:17%;left:27%}.n2{right:13%;top:48%;background:var(--violet);box-shadow:0 0 20px var(--violet)}.n3{bottom:14%;left:47%}.float-label{position:absolute;padding:9px 12px;background:rgba(15,24,36,.88);border:1px solid var(--line);border-radius:5px;color:#b7c6d6;font:10px var(--mono);backdrop-filter:blur(10px)}.fl1{top:8%;right:-2%}.fl2{bottom:9%;left:-5%}.fl3{top:48%;left:-9%}.scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:#65768a;font:10px var(--mono);letter-spacing:.14em;display:flex;align-items:center;gap:12px}.scroll-cue:after{content:"";height:28px;width:1px;background:linear-gradient(var(--cyan),transparent);position:absolute;top:22px;left:50%}
-    .ticker{border-block:1px solid var(--line);background:rgba(15,23,34,.55);overflow:hidden}.ticker-track{display:flex;justify-content:space-around;gap:40px;padding:19px 0;color:#91a3b7;font:10px var(--mono);letter-spacing:.13em;text-transform:uppercase;white-space:nowrap}.ticker-track span:before{content:"✳";color:var(--cyan);margin-right:12px}
-    .about-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:90px}.about-aside{border-left:1px solid var(--line);padding-left:25px;height:max-content}.about-aside strong{display:block;font-size:38px;letter-spacing:-.06em;color:var(--cyan)}.about-aside span{color:var(--muted);font-size:12px}.about-text h3{font-size:25px;line-height:1.4;letter-spacing:-.04em;margin:0 0 20px}.about-text p{color:var(--muted);font-size:14px;line-height:1.95;margin:0 0 16px}.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}.tag{border:1px solid var(--line);padding:7px 10px;border-radius:4px;color:#aebdcd;font:10px var(--mono)}
-    .expertise{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.skill-card,.project-card,.research-card{background:linear-gradient(145deg,rgba(19,30,44,.92),rgba(13,20,30,.92));border:1px solid var(--line);border-radius:8px;transition:.25s}.skill-card{padding:25px;min-height:220px}.skill-card:hover,.project-card:hover,.research-card:hover{transform:translateY(-5px);border-color:rgba(103,232,249,.35)}.icon-box{width:40px;height:40px;border:1px solid rgba(103,232,249,.25);background:rgba(103,232,249,.07);display:grid;place-items:center;border-radius:6px;color:var(--cyan);font-size:18px;margin-bottom:22px}.skill-card h3{font-size:15px;margin:0 0 9px}.skill-card p{font-size:12px;color:var(--muted);line-height:1.8;margin:0}.skill-card .mini{font:9px var(--mono);color:#6f8399;margin-top:17px;display:block;letter-spacing:.07em}
-    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.project-card{overflow:hidden}.project-art{height:190px;position:relative;overflow:hidden;background:radial-gradient(circle at 70% 50%,rgba(103,232,249,.15),transparent 35%),linear-gradient(135deg,#111e2c,#0b111b)}.project-art:before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:24px 24px}.art-label{position:absolute;left:20px;top:18px;color:#8da4b9;font:9px var(--mono);letter-spacing:.14em}.art-graphic{position:absolute;inset:0;display:grid;place-items:center;color:var(--cyan);font:12px var(--mono)}.ring{width:130px;height:130px;border:1px solid rgba(103,232,249,.5);border-radius:50%;position:relative;box-shadow:0 0 40px rgba(103,232,249,.1)}.ring:before,.ring:after{content:"";position:absolute;inset:18px;border:1px dashed rgba(167,139,250,.55);border-radius:50%;transform:scaleY(.5) rotate(35deg)}.ring:after{transform:scaleY(.5) rotate(-35deg)}.project-body{padding:22px}.project-top{display:flex;justify-content:space-between;gap:15px;align-items:center}.project-top h3{font-size:17px;margin:0;letter-spacing:-.03em}.status{font:9px var(--mono);color:var(--green);border:1px solid rgba(155,231,196,.22);padding:5px 8px;border-radius:3px;white-space:nowrap}.project-body p{font-size:12px;color:var(--muted);line-height:1.85;margin:12px 0 17px}.project-foot{display:flex;justify-content:space-between;gap:12px;align-items:center;color:#71869a;font:9px var(--mono);text-transform:uppercase;letter-spacing:.07em}
-    .research-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.research-card{padding:25px;display:flex;gap:18px}.research-index{font:12px var(--mono);color:var(--cyan);padding-top:4px}.research-card h3{font-size:15px;margin:0 0 8px}.research-card p{font-size:12px;color:var(--muted);margin:0;line-height:1.8}
-    .stack{display:flex;flex-wrap:wrap;gap:10px}.stack-item{padding:13px 17px;border:1px solid var(--line);border-radius:5px;background:rgba(16,23,34,.6);color:#b7c6d5;font:11px var(--mono)}.stack-item em{font-style:normal;color:var(--cyan);margin-right:8px}
-    .contact-panel{padding:54px;border:1px solid rgba(103,232,249,.22);border-radius:9px;background:radial-gradient(ellipse at 95% 0%,rgba(103,232,249,.1),transparent 42%),linear-gradient(135deg,#111c29,#0d141e);display:flex;justify-content:space-between;align-items:center;gap:35px}.contact-panel h2{font-size:clamp(30px,4vw,45px);letter-spacing:-.06em;line-height:1.1;margin:13px 0}.contact-panel p{color:var(--muted);font-size:13px;max-width:490px;margin:0}.contact-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.contact-side{font:10px var(--mono);color:#71869a;line-height:2.1;text-align:right}.contact-side strong{display:block;color:var(--cyan);font-weight:400}
-    footer{padding:30px 0;border-top:1px solid var(--line);color:#6e8093;font:10px var(--mono)}.footer-inner{display:flex;justify-content:space-between;gap:20px}.backtop{color:var(--cyan)}.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
-    @media(max-width:850px){.hero-grid{grid-template-columns:1fr;gap:20px}.hero{padding-top:140px;min-height:auto}.visual{min-height:360px}.orbital{width:330px}.about-grid{grid-template-columns:1fr;gap:35px}.about-aside{display:flex;gap:15px;align-items:center}.expertise{grid-template-columns:repeat(2,1fr)}.contact-panel{padding:35px;display:block}.contact-side{text-align:left;margin-top:25px}.section{padding:82px 0}}
-    @media(max-width:600px){.container{width:min(var(--max),calc(100% - 34px))}nav{height:66px}.nav-links{display:none;position:absolute;top:66px;left:0;right:0;padding:20px 24px 25px;background:#0c131d;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:18px}.nav-links.open{display:flex}.menu-btn{display:block}.nav-cta{display:none!important}.hero{padding:125px 0 70px}h1{font-size:clamp(48px,14vw,68px)}.hero-copy{font-size:14px}.visual{min-height:310px}.orbital{width:280px}.fl1{right:-1%}.fl3{left:-2%}.section-head{display:block}.section-head p{margin-top:18px}.expertise,.projects,.research-grid{grid-template-columns:1fr}.skill-card{min-height:0}.project-art{height:165px}.ticker-track{justify-content:flex-start;gap:32px}.contact-panel{padding:27px 22px}.footer-inner{flex-direction:column}.hero-meta{gap:13px}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(ellipse at 80% 8%,rgba(44,105,157,.17),transparent 34%),radial-gradient(ellipse at 8% 48%,rgba(84,65,139,.11),transparent 30%),linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:auto,auto,48px 48px,48px 48px;mask-image:linear-gradient(to bottom,black,transparent 90%)}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .container{width:min(var(--max),calc(100% - 48px));margin:auto}
+    .mono{font-family:var(--mono);letter-spacing:.04em}
+    .eyebrow{display:flex;align-items:center;gap:11px;color:var(--cyan);font:12px var(--mono);letter-spacing:.13em;text-transform:uppercase}
+    .eyebrow:before{content:"";width:24px;height:1px;background:var(--cyan)}
+    .section{padding:108px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:38px}
+    .section-head h2{font-size:clamp(30px,4vw,46px);line-height:1.12;letter-spacing:-.05em;margin:13px 0 0}
+    .section-head p{max-width:430px;color:var(--muted);font-size:14px;margin:0}
+    .nav-wrap{position:fixed;z-index:20;top:0;left:0;right:0;background:rgba(9,13,20,.76);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:800;letter-spacing:-.05em;font-size:17px}
+    .brand span{color:var(--cyan)}
+    .nav-links{display:flex;align-items:center;gap:29px;color:#aebdcd;font-size:12px}
+    .nav-links a{transition:.2s}
+    .nav-links a:hover{color:var(--cyan)}
+    .nav-cta{border:1px solid rgba(103,232,249,.42);padding:9px 15px;border-radius:5px;color:var(--cyan)!important}
+    .menu-btn{display:none;background:none;border:0;color:var(--text);font-size:23px}
+    .hero{min-height:760px;padding:170px 0 95px;display:flex;align-items:center;position:relative}
+    .hero-grid{display:grid;grid-template-columns:1.18fr .82fr;gap:64px;align-items:center}
+    .availability{display:inline-flex;align-items:center;gap:9px;padding:7px 11px;border:1px solid var(--line);border-radius:99px;color:#b8c6d5;font:11px var(--mono);margin-bottom:28px}
+    .pulse{width:7px;height:7px;background:#72e2ad;border-radius:50%;box-shadow:0 0 0 5px rgba(114,226,173,.1)}
+    h1{font-size:clamp(48px,7.1vw,88px);line-height:.99;letter-spacing:-.075em;margin:0 0 24px;font-weight:800}
+    .gradient{background:linear-gradient(100deg,#e9f7ff 0%,#8deafa 48%,#9c9cf9 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-copy{max-width:620px;color:#a7b5c5;font-size:16px;line-height:1.9}
+    .hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:34px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:13px 18px;border-radius:5px;font-size:12px;font-weight:700;transition:.25s;border:1px solid var(--line)}
+    .btn-primary{background:var(--cyan);color:#07121a;border-color:var(--cyan)}
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(103,232,249,.15)}
+    .btn-ghost{color:#dbe8f5}
+    .btn-ghost:hover{border-color:var(--cyan);color:var(--cyan)}
+    .hero-meta{display:flex;gap:24px;flex-wrap:wrap;margin-top:47px;color:#7f90a3;font:10px var(--mono);text-transform:uppercase;letter-spacing:.08em}
+    .hero-meta span{display:flex;align-items:center;gap:8px}
+    .hero-meta i{width:4px;height:4px;background:var(--cyan);border-radius:50%}
+    .visual{position:relative;min-height:420px;display:grid;place-items:center}
+
+    /* ORBITAL ILLUSTRATION */
+    .orbital{
+      width:min(100%,420px);
+      aspect-ratio:1;
+      border:1px solid rgba(103,232,249,.2);
+      border-radius:50%;
+      position:relative;
+      background:radial-gradient(circle at center,rgba(74,164,190,.12),rgba(10,19,30,.1) 50%,transparent 70%);
+      box-shadow:inset 0 0 80px rgba(65,190,220,.04),0 0 90px rgba(40,120,160,.08);
+    }
+
+    .orbital:before,
+    .orbital:after{
+      content:"";
+      position:absolute;
+      inset:11%;
+      border:1px dashed rgba(167,139,250,.3);
+      border-radius:50%;
+      transform-origin:center;
+      animation:orbit-clockwise 24s linear infinite;
+      pointer-events:none;
+    }
+
+    .orbital:after{
+      inset:20%;
+      border-color:rgba(103,232,249,.35);
+      animation:orbit-counterclockwise 18s linear infinite;
+    }
+
+    @keyframes orbit-clockwise{
+      from{transform:rotate(55deg) scaleY(.56)}
+      to{transform:rotate(415deg) scaleY(.56)}
+    }
+
+    @keyframes orbit-counterclockwise{
+      from{transform:rotate(-55deg) scaleY(.58)}
+      to{transform:rotate(-415deg) scaleY(.58)}
+    }
+
+    .core{
+      position:absolute;
+      inset:33%;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      background:linear-gradient(145deg,#172d3b,#111927);
+      border:1px solid rgba(103,232,249,.42);
+      box-shadow:0 0 55px rgba(103,232,249,.12);
+      font:13px var(--mono);
+      color:var(--cyan);
+      text-align:center;
+      z-index:1;
+    }
+
+    .node{
+      position:absolute;
+      width:11px;
+      height:11px;
+      border-radius:50%;
+      background:var(--cyan);
+      box-shadow:0 0 20px var(--cyan);
+      z-index:2;
+      animation:node-pulse 2.5s ease-in-out infinite;
+    }
+
+    .n1{top:17%;left:27%}
+    .n2{right:13%;top:48%;background:var(--violet);box-shadow:0 0 20px var(--violet);animation-delay:.8s}
+    .n3{bottom:14%;left:47%;animation-delay:1.6s}
+
+    @keyframes node-pulse{
+      0%,100%{transform:scale(1);opacity:.85}
+      50%{transform:scale(1.5);opacity:1}
+    }
+
+    .visual:hover .orbital:before{animation-duration:12s}
+    .visual:hover .orbital:after{animation-duration:9s}
+    .visual:hover .node{animation-duration:1.5s}
+
+    .float-label{position:absolute;padding:9px 12px;background:rgba(15,24,36,.88);border:1px solid var(--line);border-radius:5px;color:#b7c6d6;font:10px var(--mono);backdrop-filter:blur(10px)}
+    .fl1{top:8%;right:-2%}
+    .fl2{bottom:9%;left:-5%}
+    .fl3{top:48%;left:-9%}
+    .scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:#65768a;font:10px var(--mono);letter-spacing:.14em;display:flex;align-items:center;gap:12px}
+    .scroll-cue:after{content:"";height:28px;width:1px;background:linear-gradient(var(--cyan),transparent);position:absolute;top:22px;left:50%}
+
+    .ticker{border-block:1px solid var(--line);background:rgba(15,23,34,.55);overflow:hidden}
+    .ticker-track{display:flex;justify-content:space-around;gap:40px;padding:19px 0;color:#91a3b7;font:10px var(--mono);letter-spacing:.13em;text-transform:uppercase;white-space:nowrap}
+    .ticker-track span:before{content:"✳";color:var(--cyan);margin-right:12px}
+
+    .about-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:90px}
+    .about-aside{border-left:1px solid var(--line);padding-left:25px;height:max-content}
+    .about-aside strong{display:block;font-size:38px;letter-spacing:-.06em;color:var(--cyan)}
+    .about-aside span{color:var(--muted);font-size:12px}
+    .about-text h3{font-size:25px;line-height:1.4;letter-spacing:-.04em;margin:0 0 20px}
+    .about-text p{color:var(--muted);font-size:14px;line-height:1.95;margin:0 0 16px}
+    .tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+    .tag{border:1px solid var(--line);padding:7px 10px;border-radius:4px;color:#aebdcd;font:10px var(--mono)}
+
+    .expertise{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+    .skill-card,.project-card,.research-card{background:linear-gradient(145deg,rgba(19,30,44,.92),rgba(13,20,30,.92));border:1px solid var(--line);border-radius:8px;transition:.25s}
+    .skill-card{padding:25px;min-height:220px}
+    .skill-card:hover,.project-card:hover,.research-card:hover{transform:translateY(-5px);border-color:rgba(103,232,249,.35)}
+    .icon-box{width:40px;height:40px;border:1px solid rgba(103,232,249,.25);background:rgba(103,232,249,.07);display:grid;place-items:center;border-radius:6px;color:var(--cyan);font-size:18px;margin-bottom:22px}
+    .skill-card h3{font-size:15px;margin:0 0 9px}
+    .skill-card p{font-size:12px;color:var(--muted);line-height:1.8;margin:0}
+    .skill-card .mini{font:9px var(--mono);color:#6f8399;margin-top:17px;display:block;letter-spacing:.07em}
+
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .project-card{overflow:hidden}
+    .project-art{height:190px;position:relative;overflow:hidden;background:radial-gradient(circle at 70% 50%,rgba(103,232,249,.15),transparent 35%),linear-gradient(135deg,#111e2c,#0b111b)}
+    .project-art:before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:24px 24px}
+    .art-label{position:absolute;left:20px;top:18px;color:#8da4b9;font:9px var(--mono);letter-spacing:.14em}
+    .art-graphic{position:absolute;inset:0;display:grid;place-items:center;color:var(--cyan);font:12px var(--mono)}
+    .ring{width:130px;height:130px;border:1px solid rgba(103,232,249,.5);border-radius:50%;position:relative;box-shadow:0 0 40px rgba(103,232,249,.1)}
+    .ring:before,.ring:after{content:"";position:absolute;inset:18px;border:1px dashed rgba(167,139,250,.55);border-radius:50%;transform:scaleY(.5) rotate(35deg)}
+    .ring:after{transform:scaleY(.5) rotate(-35deg)}
+    .project-body{padding:22px}
+    .project-top{display:flex;justify-content:space-between;gap:15px;align-items:center}
+    .project-top h3{font-size:17px;margin:0;letter-spacing:-.03em}
+    .status{font:9px var(--mono);color:var(--green);border:1px solid rgba(155,231,196,.22);padding:5px 8px;border-radius:3px;white-space:nowrap}
+    .project-body p{font-size:12px;color:var(--muted);line-height:1.85;margin:12px 0 17px}
+    .project-foot{display:flex;justify-content:space-between;gap:12px;align-items:center;color:#71869a;font:9px var(--mono);text-transform:uppercase;letter-spacing:.07em}
+
+    .research-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .research-card{padding:25px;display:flex;gap:18px}
+    .research-index{font:12px var(--mono);color:var(--cyan);padding-top:4px}
+    .research-card h3{font-size:15px;margin:0 0 8px}
+    .research-card p{font-size:12px;color:var(--muted);margin:0;line-height:1.8}
+
+    .stack{display:flex;flex-wrap:wrap;gap:10px}
+    .stack-item{padding:13px 17px;border:1px solid var(--line);border-radius:5px;background:rgba(16,23,34,.6);color:#b7c6d5;font:11px var(--mono)}
+    .stack-item em{font-style:normal;color:var(--cyan);margin-right:8px}
+
+    .contact-panel{padding:54px;border:1px solid rgba(103,232,249,.22);border-radius:9px;background:radial-gradient(ellipse at 95% 0%,rgba(103,232,249,.1),transparent 42%),linear-gradient(135deg,#111c29,#0d141e);display:flex;justify-content:space-between;align-items:center;gap:35px}
+    .contact-panel h2{font-size:clamp(30px,4vw,45px);letter-spacing:-.06em;line-height:1.1;margin:13px 0}
+    .contact-panel p{color:var(--muted);font-size:13px;max-width:490px;margin:0}
+    .contact-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+    .contact-side{font:10px var(--mono);color:#71869a;line-height:2.1;text-align:right}
+    .contact-side strong{display:block;color:var(--cyan);font-weight:400}
+
+    footer{padding:30px 0;border-top:1px solid var(--line);color:#6e8093;font:10px var(--mono)}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px}
+    .backtop{color:var(--cyan)}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    @media(max-width:850px){
+      .hero-grid{grid-template-columns:1fr;gap:20px}
+      .hero{padding-top:140px;min-height:auto}
+      .visual{min-height:360px}
+      .orbital{width:330px}
+      .about-grid{grid-template-columns:1fr;gap:35px}
+      .about-aside{display:flex;gap:15px;align-items:center}
+      .expertise{grid-template-columns:repeat(2,1fr)}
+      .contact-panel{padding:35px;display:block}
+      .contact-side{text-align:left;margin-top:25px}
+      .section{padding:82px 0}
+    }
+
+    @media(max-width:600px){
+      .container{width:min(var(--max),calc(100% - 34px))}
+      nav{height:66px}
+      .nav-links{display:none;position:absolute;top:66px;left:0;right:0;padding:20px 24px 25px;background:#0c131d;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:18px}
+      .nav-links.open{display:flex}
+      .menu-btn{display:block}
+      .nav-cta{display:none!important}
+      .hero{padding:125px 0 70px}
+      h1{font-size:clamp(48px,14vw,68px)}
+      .hero-copy{font-size:14px}
+      .visual{min-height:310px}
+      .orbital{width:280px}
+      .fl1{right:-1%}
+      .fl3{left:-2%}
+      .section-head{display:block}
+      .section-head p{margin-top:18px}
+      .expertise,.projects,.research-grid{grid-template-columns:1fr}
+      .skill-card{min-height:0}
+      .project-art{height:165px}
+      .ticker-track{justify-content:flex-start;gap:32px}
+      .contact-panel{padding:27px 22px}
+      .footer-inner{flex-direction:column}
+      .hero-meta{gap:13px}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*:before,*:after{animation:none!important;transition:none!important}
+      .reveal{opacity:1;transform:none}
+    }
   </style>
 </head>
+
 <body>
-  <div class="nav-wrap"><nav class="container">
-    <a class="brand" href="#home">AC<span>.</span></a>
-    <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
-    <div class="nav-links" id="navLinks"><a href="#about">About</a><a href="#expertise">Expertise</a><a href="#work">Selected work</a><a href="#research">Research</a><a href="#toolkit">Toolkit</a><a class="nav-cta" href="#contact">Let's connect ↗</a></div>
-  </nav></div>
+  <div class="nav-wrap">
+    <nav class="container">
+      <a class="brand" href="#home">Arvin Chamasemani<span>.</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#work">Selected work</a>
+        <a href="#research">Research</a>
+        <a href="#toolkit">Toolkit</a>
+        <a class="nav-cta" href="#contact">Let's connect ↗</a>
+      </div>
+    </nav>
+  </div>
+
   <main>
     <section class="hero container" id="home">
       <div class="hero-grid">
@@ -39,65 +269,328 @@
           <div class="eyebrow">Mechanical engineer & technology enthusiast</div>
           <h1>Building the bridge<br>between <span class="gradient">physics</span><br>& digital worlds.</h1>
           <p class="hero-copy">I work across vehicle dynamics, intelligent control, simulation and interactive technologies — turning complex engineering problems into systems that can be modeled, tested and experienced.</p>
-          <div class="hero-actions"><a class="btn btn-primary" href="#work">Explore my work <span>↘</span></a><a class="btn btn-ghost" href="#contact">Get in touch <span>↗</span></a></div>
-          <div class="hero-meta"><span><i></i> Vehicle dynamics</span><span><i></i> Nonlinear control</span><span><i></i> Real-time simulation</span></div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#work">Explore my work <span>↘</span></a>
+            <a class="btn btn-ghost" href="#contact">Get in touch <span>↗</span></a>
+          </div>
+          <div class="hero-meta">
+            <span><i></i> Vehicle dynamics</span>
+            <span><i></i> Nonlinear control</span>
+            <span><i></i> Real-time simulation</span>
+          </div>
         </div>
+
         <div class="visual reveal" aria-label="Abstract technical orbital illustration">
-          <div class="orbital"><div class="core">ENGINEERING<br>IN MOTION</div><span class="node n1"></span><span class="node n2"></span><span class="node n3"></span></div>
-          <div class="float-label fl1">ẋ = f(x,u)</div><div class="float-label fl2">SIMULATE / ANALYZE / CONTROL</div><div class="float-label fl3">01 — SYSTEMS</div>
+          <div class="orbital">
+            <div class="core">ENGINEERING<br>IN MOTION</div>
+            <span class="node n1"></span>
+            <span class="node n2"></span>
+            <span class="node n3"></span>
+          </div>
+          <div class="float-label fl1">ẋ = f(x,u)</div>
+          <div class="float-label fl2">SIMULATE / ANALYZE / CONTROL</div>
+          <div class="float-label fl3">01 — SYSTEMS</div>
         </div>
       </div>
       <div class="scroll-cue">SCROLL TO EXPLORE</div>
     </section>
-    <div class="ticker"><div class="container ticker-track"><span>Control systems</span><span>Vehicle dynamics</span><span>Unreal Engine</span><span>Physics-informed ML</span><span>Simulation</span></div></div>
 
-    <section class="section container" id="about"><div class="section-head reveal"><div><div class="eyebrow">01 / About</div><h2>Curiosity, engineered<br>into real systems.</h2></div><p>A multidisciplinary approach to understanding, modeling and building complex dynamic systems.</p></div>
-      <div class="about-grid reveal"><div class="about-aside"><div><strong>ME</strong><span>Mechanical engineering</span></div><div><strong>R&D</strong><span>Research-driven mindset</span></div></div><div class="about-text"><h3>I’m interested in what happens when mechanical systems, intelligent algorithms and immersive technology come together.</h3><p>My work and learning span the modeling and control of dynamic systems, vehicle behavior, simulation environments and interactive applications. I enjoy moving between mathematical models, computational tools and real-time implementations.</p><p>Currently, I’m especially interested in nonlinear vehicle control, data-driven modeling and building simulation experiences with Unreal Engine.</p><div class="tag-row"><span class="tag">Model-based thinking</span><span class="tag">Applied mathematics</span><span class="tag">System identification</span><span class="tag">Interactive systems</span></div></div></div>
+    <div class="ticker">
+      <div class="container ticker-track">
+        <span>Control systems</span>
+        <span>Vehicle dynamics</span>
+        <span>Unreal Engine</span>
+        <span>Physics-informed ML</span>
+        <span>Simulation</span>
+      </div>
+    </div>
+
+    <section class="section container" id="about">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">01 / About</div>
+          <h2>Curiosity, engineered<br>into real systems.</h2>
+        </div>
+        <p>A multidisciplinary approach to understanding, modeling and building complex dynamic systems.</p>
+      </div>
+
+      <div class="about-grid reveal">
+        <div class="about-aside">
+          <div><strong>ME</strong><span>Mechanical engineering</span></div>
+          <div><strong>R&D</strong><span>Research-driven mindset</span></div>
+        </div>
+        <div class="about-text">
+          <h3>I’m interested in what happens when mechanical systems, intelligent algorithms and immersive technology come together.</h3>
+          <p>My work and learning span the modeling and control of dynamic systems, vehicle behavior, simulation environments and interactive applications. I enjoy moving between mathematical models, computational tools and real-time implementations.</p>
+          <p>Currently, I’m especially interested in nonlinear vehicle control, data-driven modeling and building simulation experiences with Unreal Engine.</p>
+          <div class="tag-row">
+            <span class="tag">Model-based thinking</span>
+            <span class="tag">Applied mathematics</span>
+            <span class="tag">System identification</span>
+            <span class="tag">Interactive systems</span>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="section container" id="expertise"><div class="section-head reveal"><div><div class="eyebrow">02 / Expertise</div><h2>Fields I work across.</h2></div><p>From first-principles modeling to real-time interactive environments.</p></div>
+    <section class="section container" id="expertise">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">02 / Expertise</div>
+          <h2>Fields I work across.</h2>
+        </div>
+        <p>From first-principles modeling to real-time interactive environments.</p>
+      </div>
+
       <div class="expertise">
-        <article class="skill-card reveal"><div class="icon-box">⌁</div><h3>Control Systems</h3><p>Nonlinear control, feedback linearization, sliding mode control, robust and adaptive control, trajectory tracking.</p><span class="mini">CONTROL THEORY / DYNAMICS</span></article>
-        <article class="skill-card reveal"><div class="icon-box">◉</div><h3>Vehicle Dynamics</h3><p>Vehicle modeling, tire behavior, lateral dynamics, handling, path tracking and autonomous vehicle applications.</p><span class="mini">MODELING / VEHICLE BEHAVIOR</span></article>
-        <article class="skill-card reveal"><div class="icon-box">⌘</div><h3>Simulation & Unreal Engine</h3><p>Interactive simulation, vehicle systems, real-time environments, physics-based experiences and virtual training concepts.</p><span class="mini">REAL-TIME / INTERACTIVE</span></article>
-        <article class="skill-card reveal"><div class="icon-box">⟡</div><h3>Machine Learning</h3><p>Physics-informed machine learning, system identification, data-driven dynamics and sparse model discovery.</p><span class="mini">PIML / SINDy / MODELING</span></article>
-        <article class="skill-card reveal"><div class="icon-box">▱</div><h3>Mechanical Engineering</h3><p>Mechanical system analysis, mathematical modeling, engineering fundamentals and computational problem solving.</p><span class="mini">MECHANICS / ANALYSIS</span></article>
-        <article class="skill-card reveal"><div class="icon-box">⌬</div><h3>Game & Embedded Systems</h3><p>Interactive application concepts, gameplay systems, microcontrollers, sensors and connected prototypes.</p><span class="mini">PROTOTYPING / IOT</span></article>
+        <article class="skill-card reveal">
+          <div class="icon-box">⌁</div>
+          <h3>Control Systems</h3>
+          <p>Nonlinear control, feedback linearization, sliding mode control, robust and adaptive control, trajectory tracking.</p>
+          <span class="mini">CONTROL THEORY / DYNAMICS</span>
+        </article>
+
+        <article class="skill-card reveal">
+          <div class="icon-box">◉</div>
+          <h3>Vehicle Dynamics</h3>
+          <p>Vehicle modeling, tire behavior, lateral dynamics, handling, path tracking and autonomous vehicle applications.</p>
+          <span class="mini">MODELING / VEHICLE BEHAVIOR</span>
+        </article>
+
+        <article class="skill-card reveal">
+          <div class="icon-box">⌘</div>
+          <h3>Simulation & Unreal Engine</h3>
+          <p>Interactive simulation, vehicle systems, real-time environments, physics-based experiences and virtual training concepts.</p>
+          <span class="mini">REAL-TIME / INTERACTIVE</span>
+        </article>
+
+        <article class="skill-card reveal">
+          <div class="icon-box">⟡</div>
+          <h3>Machine Learning</h3>
+          <p>Physics-informed machine learning, system identification, data-driven dynamics and sparse model discovery.</p>
+          <span class="mini">PIML / SINDy / MODELING</span>
+        </article>
+
+        <article class="skill-card reveal">
+          <div class="icon-box">▱</div>
+          <h3>Mechanical Engineering</h3>
+          <p>Mechanical system analysis, mathematical modeling, engineering fundamentals and computational problem solving.</p>
+          <span class="mini">MECHANICS / ANALYSIS</span>
+        </article>
+
+        <article class="skill-card reveal">
+          <div class="icon-box">⌬</div>
+          <h3>Game & Embedded Systems</h3>
+          <p>Interactive application concepts, gameplay systems, microcontrollers, sensors and connected prototypes.</p>
+          <span class="mini">PROTOTYPING / IOT</span>
+        </article>
       </div>
     </section>
 
-    <section class="section container" id="work"><div class="section-head reveal"><div><div class="eyebrow">03 / Selected work</div><h2>Projects & explorations.</h2></div><p>A selection of research directions and technical explorations. Project descriptions can be expanded as work is published.</p></div>
+    <section class="section container" id="work">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">03 / Selected work</div>
+          <h2>Projects & explorations.</h2>
+        </div>
+        <p>A selection of research directions and technical explorations. Project descriptions can be expanded as work is published.</p>
+      </div>
+
       <div class="projects">
-        <article class="project-card reveal"><div class="project-art"><span class="art-label">01 / VEHICLE CONTROL</span><div class="art-graphic"><div class="ring"></div></div></div><div class="project-body"><div class="project-top"><h3>Autonomous Vehicle Drift Control</h3><span class="status">RESEARCH</span></div><p>Exploring nonlinear vehicle dynamics and control strategies for rear-wheel-drive vehicles, including steady-state drift behavior and path tracking.</p><div class="project-foot"><span>MATLAB · NONLINEAR DYNAMICS</span><span>↗</span></div></div></article>
-        <article class="project-card reveal"><div class="project-art" style="background:radial-gradient(circle at 70% 50%,rgba(167,139,250,.18),transparent 36%),linear-gradient(135deg,#17172a,#0b111b)"><span class="art-label">02 / DATA-DRIVEN MODELING</span><div class="art-graphic" style="color:var(--violet)">θ → f(x,u) → ẋ</div></div><div class="project-body"><div class="project-top"><h3>Physics-Informed Modeling</h3><span class="status">R&D</span></div><p>Investigating machine-learning-assisted transformations of dynamic models, with an emphasis on control-oriented representations and interpretable behavior.</p><div class="project-foot"><span>PIML · SINDy · SYSTEM ID</span><span>↗</span></div></div></article>
-        <article class="project-card reveal"><div class="project-art" style="background:radial-gradient(circle at 60% 50%,rgba(96,165,250,.18),transparent 36%),linear-gradient(135deg,#101d30,#0b111b)"><span class="art-label">03 / REAL-TIME SIMULATION</span><div class="art-graphic" style="font-size:34px;color:var(--blue)">▰ ▱ ▰</div></div><div class="project-body"><div class="project-top"><h3>Vehicle Simulation Environments</h3><span class="status">DEVELOPMENT</span></div><p>Exploring physics-based vehicle simulation and interactive environments, connecting vehicle behavior, virtual worlds and real-time systems.</p><div class="project-foot"><span>UNREAL ENGINE · CHAOS</span><span>↗</span></div></div></article>
-        <article class="project-card reveal"><div class="project-art" style="background:radial-gradient(circle at 70% 50%,rgba(155,231,196,.13),transparent 36%),linear-gradient(135deg,#10231f,#0b111b)"><span class="art-label">04 / CONNECTED PROTOTYPES</span><div class="art-graphic" style="color:var(--green)">[ SENSOR ] — [ DATA ]</div></div><div class="project-body"><div class="project-top"><h3>Embedded & IoT Prototypes</h3><span class="status">PROTOTYPING</span></div><p>Building connected hardware concepts with microcontrollers, environmental sensors, telemetry and lightweight monitoring interfaces.</p><div class="project-foot"><span>ESP32 · MQTT · IOT</span><span>↗</span></div></div></article>
+        <article class="project-card reveal">
+          <div class="project-art">
+            <span class="art-label">01 / VEHICLE CONTROL</span>
+            <div class="art-graphic"><div class="ring"></div></div>
+          </div>
+          <div class="project-body">
+            <div class="project-top">
+              <h3>Autonomous Vehicle Drift Control</h3>
+              <span class="status">RESEARCH</span>
+            </div>
+            <p>Exploring nonlinear vehicle dynamics and control strategies for rear-wheel-drive vehicles, including steady-state drift behavior and path tracking.</p>
+            <div class="project-foot">
+              <span>MATLAB · NONLINEAR DYNAMICS</span>
+              <span>↗</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-art" style="background:radial-gradient(circle at 70% 50%,rgba(167,139,250,.18),transparent 36%),linear-gradient(135deg,#17172a,#0b111b)">
+            <span class="art-label">02 / DATA-DRIVEN MODELING</span>
+            <div class="art-graphic" style="color:var(--violet)">θ → f(x,u) → ẋ</div>
+          </div>
+          <div class="project-body">
+            <div class="project-top">
+              <h3>Physics-Informed Modeling</h3>
+              <span class="status">R&D</span>
+            </div>
+            <p>Investigating machine-learning-assisted transformations of dynamic models, with an emphasis on control-oriented representations and interpretable behavior.</p>
+            <div class="project-foot">
+              <span>PIML · SINDy · SYSTEM ID</span>
+              <span>↗</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-art" style="background:radial-gradient(circle at 60% 50%,rgba(96,165,250,.18),transparent 36%),linear-gradient(135deg,#101d30,#0b111b)">
+            <span class="art-label">03 / REAL-TIME SIMULATION</span>
+            <div class="art-graphic" style="font-size:34px;color:var(--blue)">▰ ▱ ▰</div>
+          </div>
+          <div class="project-body">
+            <div class="project-top">
+              <h3>Vehicle Simulation Environments</h3>
+              <span class="status">DEVELOPMENT</span>
+            </div>
+            <p>Exploring physics-based vehicle simulation and interactive environments, connecting vehicle behavior, virtual worlds and real-time systems.</p>
+            <div class="project-foot">
+              <span>UNREAL ENGINE · CHAOS</span>
+              <span>↗</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-art" style="background:radial-gradient(circle at 70% 50%,rgba(155,231,196,.13),transparent 36%),linear-gradient(135deg,#10231f,#0b111b)">
+            <span class="art-label">04 / CONNECTED PROTOTYPES</span>
+            <div class="art-graphic" style="color:var(--green)">[ SENSOR ] — [ DATA ]</div>
+          </div>
+          <div class="project-body">
+            <div class="project-top">
+              <h3>Embedded & IoT Prototypes</h3>
+              <span class="status">PROTOTYPING</span>
+            </div>
+            <p>Building connected hardware concepts with microcontrollers, environmental sensors, telemetry and lightweight monitoring interfaces.</p>
+            <div class="project-foot">
+              <span>ESP32 · MQTT · IOT</span>
+              <span>↗</span>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="section container" id="research"><div class="section-head reveal"><div><div class="eyebrow">04 / Research interests</div><h2>Questions worth exploring.</h2></div><p>The themes that guide my technical curiosity and ongoing learning.</p></div>
+    <section class="section container" id="research">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">04 / Research interests</div>
+          <h2>Questions worth exploring.</h2>
+        </div>
+        <p>The themes that guide my technical curiosity and ongoing learning.</p>
+      </div>
+
       <div class="research-grid">
-        <article class="research-card reveal"><span class="research-index">01</span><div><h3>Control-oriented model learning</h3><p>How can data-driven methods help transform complex physical models into representations that are useful for advanced control?</p></div></article>
-        <article class="research-card reveal"><span class="research-index">02</span><div><h3>Nonlinear vehicle behavior</h3><p>How can robust controllers manage highly nonlinear vehicle dynamics while maintaining tracking performance?</p></div></article>
-        <article class="research-card reveal"><span class="research-index">03</span><div><h3>Simulation fidelity & interaction</h3><p>How can real-time simulation bridge engineering analysis, immersive training and interactive experiences?</p></div></article>
-        <article class="research-card reveal"><span class="research-index">04</span><div><h3>Intelligent physical systems</h3><p>How can mechanics, control, sensing and machine learning work together in practical autonomous systems?</p></div></article>
+        <article class="research-card reveal">
+          <span class="research-index">01</span>
+          <div>
+            <h3>Control-oriented model learning</h3>
+            <p>How can data-driven methods help transform complex physical models into representations that are useful for advanced control?</p>
+          </div>
+        </article>
+
+        <article class="research-card reveal">
+          <span class="research-index">02</span>
+          <div>
+            <h3>Nonlinear vehicle behavior</h3>
+            <p>How can robust controllers manage highly nonlinear vehicle dynamics while maintaining tracking performance?</p>
+          </div>
+        </article>
+
+        <article class="research-card reveal">
+          <span class="research-index">03</span>
+          <div>
+            <h3>Simulation fidelity & interaction</h3>
+            <p>How can real-time simulation bridge engineering analysis, immersive training and interactive experiences?</p>
+          </div>
+        </article>
+
+        <article class="research-card reveal">
+          <span class="research-index">04</span>
+          <div>
+            <h3>Intelligent physical systems</h3>
+            <p>How can mechanics, control, sensing and machine learning work together in practical autonomous systems?</p>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="section container" id="toolkit"><div class="section-head reveal"><div><div class="eyebrow">05 / Toolkit</div><h2>Tools of the trade.</h2></div><p>A living toolkit across engineering, computation and interactive development.</p></div>
-      <div class="stack reveal"><span class="stack-item"><em>▣</em>MATLAB / Simulink</span><span class="stack-item"><em>◈</em>Unreal Engine</span><span class="stack-item"><em>⌘</em>C++</span><span class="stack-item"><em>⌘</em>Python</span><span class="stack-item"><em>▤</em>Git / GitHub</span><span class="stack-item"><em>◉</em>ESP32</span><span class="stack-item"><em>∑</em>Numerical Methods</span><span class="stack-item"><em>⌁</em>Control Theory</span><span class="stack-item"><em>◇</em>Machine Learning</span><span class="stack-item"><em>▱</em>3D & Simulation</span></div>
+    <section class="section container" id="toolkit">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">05 / Toolkit</div>
+          <h2>Tools of the trade.</h2>
+        </div>
+        <p>A living toolkit across engineering, computation and interactive development.</p>
+      </div>
+
+      <div class="stack reveal">
+        <span class="stack-item"><em>▣</em>MATLAB / Simulink</span>
+        <span class="stack-item"><em>◈</em>Unreal Engine</span>
+        <span class="stack-item"><em>⌘</em>C++</span>
+        <span class="stack-item"><em>⌘</em>Python</span>
+        <span class="stack-item"><em>▤</em>Git / GitHub</span>
+        <span class="stack-item"><em>◉</em>ESP32</span>
+        <span class="stack-item"><em>∑</em>Numerical Methods</span>
+        <span class="stack-item"><em>⌁</em>Control Theory</span>
+        <span class="stack-item"><em>◇</em>Machine Learning</span>
+        <span class="stack-item"><em>▱</em>3D & Simulation</span>
+      </div>
     </section>
 
-    <section class="section container" id="contact"><div class="contact-panel reveal"><div><div class="eyebrow">06 / Contact</div><h2>Have a challenging<br><span class="gradient">system in mind?</span></h2><p>I’m always interested in thoughtful conversations, engineering challenges and collaborations across control, simulation and interactive technology.</p><div class="contact-links"><a class="btn btn-primary" href="mailto:YOUR_EMAIL@example.com">Email me ↗</a><a class="btn btn-ghost" href="https://github.com/YOUR_GITHUB" target="_blank" rel="noopener">GitHub ↗</a><a class="btn btn-ghost" href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener">LinkedIn ↗</a></div></div><div class="contact-side"><strong>OPEN TO IDEAS & COLLABORATION</strong>CONTROL / SIMULATION<br>MECHANICS / INTERACTIVE TECH</div></div></section>
+    <section class="section container" id="contact">
+      <div class="contact-panel reveal">
+        <div>
+          <div class="eyebrow">06 / Contact</div>
+          <h2>Have a challenging<br><span class="gradient">system in mind?</span></h2>
+          <p>I’m always interested in thoughtful conversations, engineering challenges and collaborations across control, simulation and interactive technology.</p>
+          <div class="contact-links">
+            <a class="btn btn-primary" href="mailto:ArvinChamasemani@gmail.com">Email me ↗</a>
+            <a class="btn btn-ghost" href="https://github.com/arvin-chamasemani" target="_blank" rel="noopener">GitHub ↗</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/arvin-chamasemani" target="_blank" rel="noopener">LinkedIn ↗</a>
+          </div>
+        </div>
+        <div class="contact-side">
+          <strong>OPEN TO IDEAS & COLLABORATION</strong>
+          CONTROL / SIMULATION<br>
+          MECHANICS / INTERACTIVE TECH
+        </div>
+      </div>
+    </section>
   </main>
-  <footer><div class="container footer-inner"><span>© <span id="year"></span> ARVIN CHAMASEMANI. BUILT WITH CURIOSITY.</span><a class="backtop" href="#home">BACK TO TOP ↑</a></div></footer>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> ARVIN CHAMASEMANI. BUILT WITH CURIOSITY.</span>
+      <a class="backtop" href="#home">BACK TO TOP ↑</a>
+    </div>
+  </footer>
+
   <script>
     const menuBtn=document.getElementById('menuBtn');
     const navLinks=document.getElementById('navLinks');
-    menuBtn.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open));menuBtn.textContent=open?'×':'☰'});
-    navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.textContent='☰'}));
+
+    menuBtn.addEventListener('click',()=>{
+      const open=navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded',String(open));
+      menuBtn.textContent=open?'×':'☰';
+    });
+
+    navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded','false');
+      menuBtn.textContent='☰';
+    }));
+
     document.getElementById('year').textContent=new Date().getFullYear();
-    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});
+
+    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    }),{threshold:.12});
+
     document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
   </script>
 </body>
