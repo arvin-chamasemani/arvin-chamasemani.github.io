@@ -319,7 +319,7 @@
     .hero h1{animation:hero-rise .9s var(--ease-out) both}
     .hero-copy{animation:hero-rise .9s .12s var(--ease-out) both}
     .hero-actions{animation:hero-rise .9s .2s var(--ease-out) both}
-    @keyframes hero-rise{from{opacity:0;transform:translateY(24px);filter:blur(5px)}to{opacity:1;transform:none;filter:blur(0)}}50%{transform:translateY(-11px) rotate(2deg)}}
+    @keyframes hero-rise{from{opacity:0;transform:translateY(24px);filter:blur(5px)}to{opacity:1;transform:none;filter:blur(0)}50%{transform:translateY(-11px) rotate(2deg)}}
     .ticker-track{width:max-content;min-width:100%;justify-content:flex-start;animation:ticker-scroll 32s linear infinite}
     .ticker:hover .ticker-track{animation-play-state:paused}
     @keyframes ticker-scroll{to{transform:translateX(-28%)}}
@@ -588,15 +588,17 @@
           </div>
           <div class="project-body">
             <div class="project-top">
-              <h3>Vehicle Simulation Environments</h3>
-              <span class="status">DEVELOPMENT</span>
+              <h3>Lorenz System Simulation</h3>
+              <span class="status">Simulation</span>
             </div>
-            <p>Exploring physics-based vehicle simulation and interactive environments, connecting vehicle behavior, virtual worlds and real-time systems.</p>
-            <div class="project-foot"><span>UNREAL ENGINE · CHAOS</span><span>DEVELOPMENT</span></div>
+            <p>GPU-accelerated Lorenz attractor simulation and real-time particle visualization developed with Unreal Engine 5.</p>
+            <div class="project-foot"><span>UNREAL ENGINE · SIMULATION</span>
+            <a class="repo-link" href="https://github.com/arvin-chamasemani/LorenzSimulation.git" target="_blank" rel="noopener noreferrer">View repository</a>
+            </div>
           </div>
         </article>
 
-        <article class="project-card reveal">
+        <!-- <article class="project-card reveal">
           <div class="project-art" style="background-image:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=85')">
             <span class="art-label">06 / CONNECTED PROTOTYPES</span>
             <div class="art-graphic" style="color:var(--green)">[ SENSOR ] — [ DATA ]</div>
@@ -609,7 +611,8 @@
             <p>Building connected hardware concepts with microcontrollers, environmental sensors, telemetry and lightweight monitoring interfaces.</p>
             <div class="project-foot"><span>ESP32 · MQTT · IOT</span><span>PROTOTYPING</span></div>
           </div>
-        </article>
+        </article> -->
+        
       </div>
     </section>
 
